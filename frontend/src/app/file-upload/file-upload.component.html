@@ -1,0 +1,25 @@
+<mat-card class="card">
+    <mat-card-content>
+        <mat-card-title>Resumable File Upload With Progressbars</mat-card-title>
+        <div class="form">
+            <input name="file" type="file" hidden #fileInputRead (change)="onChangeFileInput()" />
+            <button mat-raised-button color="primary" (click)="onClickFileInputButton()">
+                <mat-icon>attach_file</mat-icon>
+                Select files
+            </button>
+        </div>
+        <div class="progress" *ngIf="progress">
+            <button mat-icon-button color="primary" (click)="pausePlayUpload()">
+                <mat-icon>{{ isPaused ?'play_arrow' : 'pause' }}</mat-icon>
+            </button>
+            <mat-progress-bar class="progress-bar" mode="determinate" [value]="progress"></mat-progress-bar>
+            <p> {{progress}} %</p>
+        </div>
+        <div *ngIf="state" class="filename">
+            <p>{{ name }}</p>
+            <button mat-icon-button (click)="cancelFile()">
+                <mat-icon>cancel</mat-icon>
+            </button>
+        </div>
+    </mat-card-content>
+</mat-card>
