@@ -5,4 +5,4 @@ This Project is made with NodeJs 12.
 
 1) `npm install`
 2) `npm start`
-3) Clik [Here](https://github.com/frustrated-developer/resumable-file-upload/tree/master/frontend) for frontend setup.
+3) Clik [Here](https://github.com/coderman-401/resumable-file-upload/tree/master/frontend) for frontend setup.
