@@ -1,4 +1,4 @@
-# PPT To Image
+# Resumable File Upload
 
 ## [Frontend](https://github.com/coderman-401/resumable-file-upload/tree/master/frontend)
   frontend is developed in angular to preview the slideshow of converted images.
