@@ -32,7 +32,7 @@ export class FileService {
     uploadFile(file: any, headersData: any): Observable<any> {
         const headers = new HttpHeaders(headersData);
 
-        return this.httpClient.post<any>(`${this.url}upload` , file, {
+        return this.httpClient.post<any>(`${this.url}upload`, file, {
             headers,
             reportProgress: true,
             observe: 'events'
@@ -43,7 +43,7 @@ export class FileService {
     getStatus(data: any): Observable<any> {
         const headers = new HttpHeaders(data);
 
-        return this.httpClient.get<any>(`${this.url}status`, {headers});
+        return this.httpClient.get<any>(`${this.url}status`, { headers });
     }
 
 }

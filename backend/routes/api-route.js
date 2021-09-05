@@ -1,11 +1,11 @@
 const express = require('express');
 const router = express.Router();
 
-const file_upload_contoller = require('../controllers/fileupload.controller');
+const file_upload_controller = require('../controllers/fileupload.controller');
 
-router.all('/upload', file_upload_contoller.index);
-router.all('/status', file_upload_contoller.sendStatus);
-router.all('/list', file_upload_contoller.list);
+router.all('/upload', file_upload_controller.index);
+router.all('/status', file_upload_controller.sendStatus);
+router.all('/list', file_upload_controller.list);
 
 //Exporting The Router //
 module.exports = router;

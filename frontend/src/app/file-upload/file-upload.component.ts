@@ -14,7 +14,7 @@ import { FileService } from '../services/file.service';
 })
 export class FileUploadComponent {
 
-    @ViewChild('fileInputRead', {static: true}) fileInputRead: { nativeElement: { [x: string]: File; click?: any; }; };
+    @ViewChild('fileInputRead', { static: true }) fileInputRead: { nativeElement: { [x: string]: File; click?: any; }; };
 
     file: File | null = null;
 
@@ -60,7 +60,7 @@ export class FileUploadComponent {
 
         // get file status
         this.fileService.getStatus(headerData).pipe(takeUntil(this.destroy$)).subscribe((response: any) => {
-            if (response.status === 'file is present'){
+            if (response.status === 'file is present') {
                 alert(response.status);
                 this.resetFileProgress();
                 return;
@@ -88,30 +88,30 @@ export class FileUploadComponent {
         this.subscribe$ = this.fileService.uploadFile(postData, headersData).subscribe((event: HttpEvent<any>) => {
 
             switch (event.type) {
-              case HttpEventType.Sent:
-                this.state = true;
-                break;
-              case HttpEventType.UploadProgress:
-                let total: number;
-                let loaded: number;
-                if (this.isResume) {
-                    total = this.file.size;
-                    loaded = event.loaded + startByte;
-                } else {
-                    total = event.total;
-                    loaded = event.loaded;
-                }
+                case HttpEventType.Sent:
+                    this.state = true;
+                    break;
+                case HttpEventType.UploadProgress:
+                    let total: number;
+                    let loaded: number;
+                    if (this.isResume) {
+                        total = this.file.size;
+                        loaded = event.loaded + startByte;
+                    } else {
+                        total = event.total;
+                        loaded = event.loaded;
+                    }
 
-                console.log(`${this.progress}%`, `Total = ${total}`, `loaded = ${loaded}`);
-                this.progress = Math.round(loaded / total * 100);
-                if (this.progress === 100) {
-                    this.showSnakbar('File uploaded successfully!');
-                }
-                break;
-              case HttpEventType.Response:
-                setTimeout(() => {
-                    this.resetFileProgress();
-                }, 1500);
+                    console.log(`${this.progress}%`, `Total = ${total}`, `loaded = ${loaded}`);
+                    this.progress = Math.round(loaded / total * 100);
+                    if (this.progress === 100) {
+                        this.showSnakbar('File uploaded successfully!');
+                    }
+                    break;
+                case HttpEventType.Response:
+                    setTimeout(() => {
+                        this.resetFileProgress();
+                    }, 1500);
             }
         });
     }

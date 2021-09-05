@@ -5,9 +5,9 @@ const api = require('./routes/api-route'); // Imports routes for the apis
 const app = express();
 
 // middlewares
-app.use(cors({origin: '*'}));
+app.use(cors({ origin: '*' }));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use('/', api);
 app.use('/upload', express.static('./uploads'))
 
